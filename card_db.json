@@ -1,0 +1,191 @@
+{
+    "cards": [
+        {
+            "id": 0,
+            "name": "TestCard0",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 1,
+            "name": "TestCard01",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 2,
+            "name": "TestCard2",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 3,
+            "name": "TestCard3",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 4,
+            "name": "TestCard4",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 5,
+            "name": "TestCard5",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 6,
+            "name": "TestCard6",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 7,
+            "name": "TestCard7",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 8,
+            "name": "TestCard8",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 9,
+            "name": "TestCard9",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 10,
+            "name": "TestCard10",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 11,
+            "name": "TestCard11",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 12,
+            "name": "TestCard12",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 13,
+            "name": "TestCard13",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 14,
+            "name": "TestCard14",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 15,
+            "name": "TestCard15",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        },
+        {
+            "id": 16,
+            "name": "TestCard16",
+            "salvage": 1,
+            "scrap": 0,
+            "attack": 0,
+            "defense": 0,
+            "effects": "",
+            "types": [""],
+            "scrap_effect": ""
+        }
+    ]
+}
