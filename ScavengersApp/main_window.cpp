@@ -8,7 +8,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui_(new Ui::MainWindow){
+    ui_(new Ui::MainWindow) {
     ui_->setupUi(this);
 
     player_deck_ = new Deck();

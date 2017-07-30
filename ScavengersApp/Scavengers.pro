@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,13 +28,15 @@ SOURCES += \
         main_window.cpp \
     card.cpp \
     deck.cpp \
-    card_db.cpp
+    card_db.cpp \
+    client.cpp
 
 HEADERS += \
         main_window.h \
     card.h \
     deck.h \
-    card_db.h
+    card_db.h \
+    client.h
 
 FORMS += \
         main_window.ui

@@ -2,6 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
+#include "client.h"
 #include "deck.h"
 
 namespace Ui {
@@ -21,6 +22,7 @@ public:
 private:
     Ui::MainWindow *ui_;
     Deck *player_deck_;
+    Client client_;
 };
 
 #endif // MAIN_WINDOW_H
