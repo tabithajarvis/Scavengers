@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_->setupUi(this);
 
     player_deck_ = new Deck();
-    player_deck_->ParseDeckList(":test_deck.json");
+    player_deck_->ParseDeckList(":test_deck_all_same.json");
     player_deck_->StartGame();
 
     QHBoxLayout *hand = new QHBoxLayout();

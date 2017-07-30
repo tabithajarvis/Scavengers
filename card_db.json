@@ -7,13 +7,13 @@
             "scrap": 0,
             "attack": 0,
             "defense": 0,
-            "effects": "",
-            "types": [""],
-            "scrap_effect": ""
+            "effects": "Testing effects string. Making it longish for testing. Oh yeah.",
+            "types": ["Mech"],
+            "scrap_effect": "+1 to something"
         },
         {
             "id": 1,
-            "name": "TestCard01",
+            "name": "TestCard1",
             "salvage": 1,
             "scrap": 0,
             "attack": 0,

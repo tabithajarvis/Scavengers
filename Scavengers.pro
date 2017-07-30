@@ -28,16 +28,18 @@ SOURCES += \
         main_window.cpp \
     card.cpp \
     deck.cpp \
-    carddb.cpp
+    card_db.cpp
 
 HEADERS += \
         main_window.h \
     card.h \
     deck.h \
-    carddb.h
+    card_db.h
 
 FORMS += \
         main_window.ui
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES +=

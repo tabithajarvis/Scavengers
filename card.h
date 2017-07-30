@@ -4,9 +4,18 @@
 #include <QFrame>
 #include <QString>
 
+const int MAX_NUM_TYPES = 3;
+
 struct Card {
     int id;
     QString name;
+    int salvage;
+    int scrap;
+    int attack;
+    int defense;
+    QString effects;
+    QString type[MAX_NUM_TYPES];
+    QString scrap_effect;
 };
 
 class CardWidget : public QFrame
