@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>test_deck.json</file>
         <file>card_db.json</file>
+        <file>test_deck_all_same.json</file>
     </qresource>
 </RCC>
