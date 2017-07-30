@@ -3,12 +3,14 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
+#include <QDebug>
+
 CardWidget::CardWidget(Card card)
     : QFrame(),
       card_(card) {
 
     setFixedSize(150, 200);
-    setStyleSheet("background-color: white; border-radius: 10px;font: \"Arial\"; font-size: 10px; ");
+    setStyleSheet("background-color: white; border-radius: 5px;font: \"Arial\"; font-size: 10px; ");
     setFrameStyle(QFrame::Panel | QFrame::Raised);
 
     // Set card properties

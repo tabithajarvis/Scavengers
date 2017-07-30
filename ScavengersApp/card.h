@@ -16,6 +16,9 @@ struct Card {
     QString effects;
     QString type[MAX_NUM_TYPES];
     QString scrap_effect;
+    int attack_modifier=0;
+    int defense_modifier=0;
+    int damage=0;
 };
 
 class CardWidget : public QFrame

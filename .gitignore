@@ -1,0 +1,4 @@
+*.pro.user
+ScavengersApp/*.pro.user
+ScavengersServer/*.pro.user
+

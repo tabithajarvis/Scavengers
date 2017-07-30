@@ -48,16 +48,12 @@ bool Deck::ParseDeckList(const QString &file_name) {
         return false;
     }
 
-    qDebug() << "Deck file opened.";
     QJsonObject load_deck = QJsonDocument::fromJson(deck_file.readAll()).object();
     deck_file.close();
-
-    qDebug() << "JsonDocument objectified.";
     QJsonArray cards = load_deck["deck"].toArray();
 
-    qDebug() << "Array retrieved from doc.";
+
     CardDB *card_db = new CardDB();
-    qDebug() << "Card database created.";
     for(int i=0; i<cards.size();i++) {
         for(int j=0; j<cards[i].toObject().value("amount").toInt(); j++)
             AddCard(card_db->GetCard(cards[i].toObject().value("id").toInt()));
