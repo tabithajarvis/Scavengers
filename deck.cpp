@@ -9,7 +9,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include "carddb.h"
+#include "card_db.h"
 
 Deck::Deck()
 {

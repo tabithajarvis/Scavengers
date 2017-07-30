@@ -1,5 +1,5 @@
-#ifndef CARDDB_H
-#define CARDDB_H
+#ifndef CARD_DB_H
+#define CARD_DB_H
 
 #include "card.h"
 
@@ -13,4 +13,4 @@ private:
     std::map<int, Card> map;
 };
 
-#endif // CARDDB_H
+#endif // CARD_DB_H
