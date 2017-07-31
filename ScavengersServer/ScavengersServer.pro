@@ -11,3 +11,6 @@ SOURCES       = dialog.cpp \
 # install
 target.path = $$[QT_INSTALL_EXAMPLES]/network/scavengers_server
 INSTALLS += target
+
+DISTFILES += \
+    ../json/game_state.json

@@ -3,8 +3,8 @@
 #include <QByteArray>
 #include <QDataStream>
 
-ScavengersThread::ScavengersThread(int socket_descriptor, QObject *parent)
-    : QThread(parent), socket_descriptor_(socket_descriptor)
+ScavengersThread::ScavengersThread(int socket_descriptor, GameState *game_state, QObject *parent)
+    : QThread(parent), game_state_(game_state), socket_descriptor_(socket_descriptor)
 {
 
 }
@@ -20,7 +20,7 @@ void ScavengersThread::run() {
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
-    out << "Server running...";
+    out << game_state_;
 
     tcp_socket.write(block);
     tcp_socket.disconnectFromHost();

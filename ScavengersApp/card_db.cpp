@@ -10,7 +10,7 @@
 
 CardDB::CardDB()
 {
-    QFile card_db(":card_db.json");
+    QFile card_db("../json/card_db.json");
     if(!card_db.open(QIODevice::ReadOnly)) {
         qWarning("Couldn't open Card DB.");
     }

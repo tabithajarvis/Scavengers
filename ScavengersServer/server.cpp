@@ -15,7 +15,7 @@ Server::Server(QObject *parent)
 
 void Server::incomingConnection(qintptr socket_descriptor) {
     qDebug() << "Incoming connection socket descriptor: " << socket_descriptor;
-    ScavengersThread *thread = new ScavengersThread(socket_descriptor, this);
+    ScavengersThread *thread = new ScavengersThread(socket_descriptor, &game_state_, this);
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
     thread->start();
 }

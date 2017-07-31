@@ -2,26 +2,27 @@
 
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 #include <QDebug>
 
-CardWidget::CardWidget(Card card)
-    : QFrame(),
-      card_(card) {
+CardWidget::CardWidget(CardInstance card_instance)
+    : QPushButton(),
+      card_instance_(card_instance) {
 
     setFixedSize(150, 200);
     setStyleSheet("background-color: white; border-radius: 5px;font: \"Arial\"; font-size: 10px; ");
-    setFrameStyle(QFrame::Panel | QFrame::Raised);
+    //setFrameStyle(QFrame::Panel | QFrame::Raised);
 
     // Set card properties
-    QLabel *name_label         = new QLabel(card_.name);
-    QLabel *salvage_label      = new QLabel(QString::number(card_.salvage));
-    QLabel *scrap_label        = new QLabel(QString::number(card_.scrap));
-    QLabel *attack_label       = new QLabel(QString::number(card_.attack));
-    QLabel *defense_label      = new QLabel(QString::number(card_.defense));
-    QLabel *effects_label      = new QLabel(card_.effects);
-    QLabel *type_label         = new QLabel(card_.type[0]);
-    QLabel *scrap_effect_label = new QLabel(card_.scrap_effect);
+    QLabel *name_label         = new QLabel(card_instance.card.name);
+    QLabel *salvage_label      = new QLabel(QString::number(card_instance.card.salvage));
+    QLabel *scrap_label        = new QLabel(QString::number(card_instance.card.scrap));
+    QLabel *attack_label       = new QLabel(QString::number(card_instance.card.attack));
+    QLabel *defense_label      = new QLabel(QString::number(card_instance.card.defense));
+    QLabel *effects_label      = new QLabel(card_instance.card.effects);
+    QLabel *type_label         = new QLabel(card_instance.card.type[0]);
+    QLabel *scrap_effect_label = new QLabel(card_instance.card.scrap_effect);
 
     effects_label->setWordWrap(true);
 
@@ -42,4 +43,10 @@ CardWidget::CardWidget(Card card)
     vert_layout->addWidget(scrap_effect_label, 1);
     vert_layout->addLayout(bottom_layout, 1);
     setLayout(vert_layout);
+
+    connect(this, SIGNAL(clicked()), this, SLOT(CardSelected()));
+}
+
+void CardWidget::CardSelected() {
+    emit CardToBattlefield(this);
 }

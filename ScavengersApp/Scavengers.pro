@@ -36,7 +36,8 @@ HEADERS += \
     card.h \
     deck.h \
     card_db.h \
-    client.h
+    client.h \
+    player.h
 
 FORMS += \
         main_window.ui
@@ -44,4 +45,3 @@ FORMS += \
 RESOURCES += \
     resources.qrc
 
-DISTFILES +=

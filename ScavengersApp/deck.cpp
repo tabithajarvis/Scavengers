@@ -34,11 +34,13 @@ void Deck::AddCard(Card card) {
     all_cards_.emplace_back(card);
 }
 
-Card Deck::Draw() {
+CardInstance Deck::Draw() {
     Card card_draw = library_.back();
-    hand_.emplace_back(card_draw);
+    CardInstance card_instance;
+    card_instance.card = card_draw;
+    hand_.emplace_back(card_instance);
     library_.pop_back();
-    return card_draw;
+    return card_instance;
 }
 
 bool Deck::ParseDeckList(const QString &file_name) {

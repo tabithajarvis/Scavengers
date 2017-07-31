@@ -2,6 +2,7 @@
 #define SERVER_H
 
 #include <QtNetwork/QTcpServer>
+#include "../game_state.h"
 
 class Server : public QTcpServer
 {
@@ -14,6 +15,7 @@ protected:
     void incomingConnection(qintptr socket_descriptor) override;
 
 private:
+    GameState game_state_;
 };
 
 #endif // SERVER_H

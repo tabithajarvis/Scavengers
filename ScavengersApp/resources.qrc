@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
-        <file>test_deck.json</file>
-        <file>card_db.json</file>
-        <file>test_deck_all_same.json</file>
+        <file>../json/card_db.json</file>
+        <file>../json/test_deck.json</file>
+        <file>../json/test_deck_all_same.json</file>
     </qresource>
 </RCC>

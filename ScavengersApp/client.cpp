@@ -53,12 +53,15 @@
 
 #include "client.h"
 
+#include <QDataStream>
+
 Client::Client(QWidget *parent)
     : QObject(parent),
     tcpSocket(new QTcpSocket(this)) {
-    in.setDevice(tcpSocket);
-    in.setVersion(QDataStream::Qt_4_0);
+    data.setDevice(tcpSocket);
+    data.setVersion(QDataStream::Qt_4_0);
 
+    connect(tcpSocket, &QIODevice::readyRead, this, &Client::ReadGameState);
     Connect();
 }
 
@@ -67,4 +70,52 @@ void Client::Connect()
     tcpSocket->abort();
     tcpSocket->connectToHost("192.168.1.76",
                              8765);
+}
+
+void Client::ReadGameState()
+{
+    data.startTransaction();
+
+
+    if (!data.commitTransaction())
+        return;
+}
+
+void Client::SendGameState() {
+    data.startTransaction();
+
+    if(!data.commitTransaction())
+        return;
+    qDebug() << JsonifyGameState();
+    data << JsonifyGameState();
+}
+
+QString Client::JsonifyGameState() {
+    QJsonObject game_state_json;
+    QJsonArray card_array;
+    for(CardInstance card: game_state_.cards_in_play) {
+        QJsonObject card_object;
+        JsonifyCardInstance(card_object, &card);
+        card_array.append(card_object);
+    }
+
+    game_state_json["cards"] = card_array;
+    return QString(QJsonDocument(game_state_json).toJson(QJsonDocument::Compact));
+}
+
+void Client::JsonifyCardInstance(QJsonObject &json, CardInstance *card) const {
+    json["id"] = card->card.id;
+    json["name"] = card->card.name;
+    json["salvage"] = card->card.salvage;
+    json["scrap"] = card->card.scrap;
+    json["effects"] = card->card.effects;
+    json["attack"] = card->card.attack;
+    json["defense"] = card->card.defense;
+    json["type"] = card->card.type[0];
+    json["scrap_effect"] = card->card.scrap_effect;
+    json["player_id"] = card->player_id;
+    json["attack_modifier"] = card->attack_modifier;
+    json["defense_modifier"] = card->defense_modifier;
+    json["damage"] = card->damage;
+    json["play_area"] = static_cast<int>(card->play_area);
 }

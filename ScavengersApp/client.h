@@ -56,15 +56,25 @@
 #include <QtNetwork/QNetworkSession>
 #include <QDataStream>
 
+#include "../game_state.h"
+
 class Client : public QObject
 {
 public:
     explicit Client(QWidget *parent = Q_NULLPTR);
     void Connect();
+    void ReadGameState();
+    void SendGameState();
+    void SetGameState(GameState game_state) { game_state_ = game_state; }
+    GameState game_state() { return game_state_; }
 
 private:
+    QString JsonifyGameState();
+    void JsonifyCardInstance(QJsonObject &object, CardInstance *card) const;
+
     QTcpSocket *tcpSocket;
-    QDataStream in;
+    QDataStream data;
+    GameState game_state_;
 };
 
 #endif
