@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QDebug>
 
-#include "card.h"
+#include "card_widget.h"
 #include "player.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     player_deck_ = new Deck();
     player_deck_->ParseDeckList("../json/test_deck.json");
     player_deck_->StartGame();
-
+    qDebug() << "Game started";
     hand_layout_ = new QHBoxLayout();
     enemy_zone_layout_ = new QHBoxLayout();
     player_zone_layout_ = new QHBoxLayout();
@@ -28,8 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for(int i=0; i<player_deck_->hand_size(); i++) {
         CardInstance card_instance = player_deck_->Draw();
+        qDebug() << "Card drawn";
         card_instance.player_id = player.id;
-        CardWidget *card_widget = new CardWidget(player_deck_->Draw());
+        qDebug() << "Player ID set";
+        CardWidget *card_widget = new CardWidget(card_instance);
+        qDebug() << "Card widget created";
         hand_layout_->addWidget(card_widget);
         connect(card_widget, SIGNAL(CardToBattlefield(CardWidget*)), this, SLOT(PlayCard(CardWidget*)));
     }
@@ -44,6 +47,8 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::PlayCard(CardWidget *card_widget) {
+    //card_widget->card_instance()
+
     player_zone_layout_->addWidget(card_widget);
     hand_layout_->removeWidget(card_widget);
     ui_->player_area->setLayout(player_zone_layout_);
@@ -55,7 +60,7 @@ void MainWindow::UpdateGameState() {
     game_state_.cards_in_play.clear();
 
     for (CardInstance card : player_deck_->player_side()) {
-        game_state_.cards_in_play.emplace_back(card);
+        game_state_.cards_in_play.emplace_back(&card);
     }
 
     client_.SetGameState(game_state_);

@@ -1,11 +1,12 @@
-#ifndef CARD_H
-#define CARD_H
+#ifndef CARD_WIDGET_H
+#define CARD_WIDGET_H
 
 #include <QFrame>
 #include <QString>
 #include <QPushButton>
 
-const int MAX_NUM_TYPES = 3;
+#include "../ScavengersLib/card.h"
+#include "../ScavengersLib/database.h"
 
 enum class PlayArea {
     kLibrary = 0,
@@ -14,19 +15,6 @@ enum class PlayArea {
     kPlayerZone,
     kSharedZone,
     kEnemyZone
-};
-
-
-struct Card {
-    int id;
-    QString name;
-    int salvage;
-    int scrap;
-    int attack;
-    int defense;
-    QString effects;
-    QString type[MAX_NUM_TYPES];
-    QString scrap_effect;
 };
 
 struct CardInstance {
@@ -44,7 +32,7 @@ class CardWidget : public QPushButton
 
 public:
     CardWidget(CardInstance card_instance);
-    CardInstance *card_instance() { return &card_instance_; }
+    CardInstance card_instance() { return card_instance_; }
 
 public slots:
     void CardSelected();
@@ -57,4 +45,4 @@ private:
     CardInstance card_instance_;
 };
 
-#endif // CARD_H
+#endif // CARD_WIDGET_H

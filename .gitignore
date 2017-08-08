@@ -1,4 +1,9 @@
 *.pro.user
 ScavengersApp/*.pro.user
-ScavengersServer/*.pro.user
+ScavengersApp/build*
 
+ScavengersServer/*.pro.user
+ScavengersServer/build*
+
+ScavengersLib/*.pro.user
+ScavengersLib/build*

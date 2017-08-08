@@ -93,9 +93,9 @@ void Client::SendGameState() {
 QString Client::JsonifyGameState() {
     QJsonObject game_state_json;
     QJsonArray card_array;
-    for(CardInstance card: game_state_.cards_in_play) {
+    for(CardInstance *card: game_state_.cards_in_play) {
         QJsonObject card_object;
-        JsonifyCardInstance(card_object, &card);
+        JsonifyCardInstance(card_object, card);
         card_array.append(card_object);
     }
 
@@ -111,7 +111,7 @@ void Client::JsonifyCardInstance(QJsonObject &json, CardInstance *card) const {
     json["effects"] = card->card.effects;
     json["attack"] = card->card.attack;
     json["defense"] = card->card.defense;
-    json["type"] = card->card.type[0];
+    json["type"] = card->card.type;
     json["scrap_effect"] = card->card.scrap_effect;
     json["player_id"] = card->player_id;
     json["attack_modifier"] = card->attack_modifier;

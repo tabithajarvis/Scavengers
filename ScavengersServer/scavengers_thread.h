@@ -4,14 +4,13 @@
 #include <QThread>
 #include <QtNetwork/QTcpSocket>
 
-#include "../game_state.h"
 
 class ScavengersThread : public QThread
 {
     Q_OBJECT
 
 public:
-    ScavengersThread(int socket_descriptor, GameState *game_state, QObject *parent);
+    ScavengersThread(int socket_descriptor, QObject *parent);
     void run() override;
 
 signals:
@@ -20,7 +19,6 @@ signals:
 private:
     int socket_descriptor_;
     QString text_;
-    GameState *game_state_;
 };
 
 #endif // SCAVENGERS_THREAD_H

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,18 +26,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         main_window.cpp \
-    card.cpp \
     deck.cpp \
-    card_db.cpp \
-    client.cpp
+    client.cpp \
+    card_widget.cpp
 
 HEADERS += \
         main_window.h \
-    card.h \
     deck.h \
-    card_db.h \
     client.h \
-    player.h
+    player.h \
+    card_widget.h
 
 FORMS += \
         main_window.ui
@@ -45,3 +43,11 @@ FORMS += \
 RESOURCES += \
     resources.qrc
 
+INCLUDEPATH += ../ScavengersLib
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../ScavengersLib/build-ScavengersLib-Desktop_Qt_5_9_1_MSVC2015_64bit-Debug/release/ -lScavengersLib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../ScavengersLib/build-ScavengersLib-Desktop_Qt_5_9_1_MSVC2015_64bit-Debug/debug/ -lScavengersLib
+else:unix: LIBS += -L$$PWD/../ScavengersLib/build-ScavengersLib-Desktop_Qt_5_9_1_MSVC2015_64bit-Debug/ -lScavengersLib
+
+INCLUDEPATH += $$PWD/../ScavengersLib/build-ScavengersLib-Desktop_Qt_5_9_1_MSVC2015_64bit-Debug/debug
+DEPENDPATH += $$PWD/../ScavengersLib/build-ScavengersLib-Desktop_Qt_5_9_1_MSVC2015_64bit-Debug/debug

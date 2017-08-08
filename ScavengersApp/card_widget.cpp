@@ -1,4 +1,4 @@
-#include "card.h"
+#include "card_widget.h"
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -9,7 +9,6 @@
 CardWidget::CardWidget(CardInstance card_instance)
     : QPushButton(),
       card_instance_(card_instance) {
-
     setFixedSize(150, 200);
     setStyleSheet("background-color: white; border-radius: 5px;font: \"Arial\"; font-size: 10px; ");
     //setFrameStyle(QFrame::Panel | QFrame::Raised);
@@ -21,8 +20,9 @@ CardWidget::CardWidget(CardInstance card_instance)
     QLabel *attack_label       = new QLabel(QString::number(card_instance.card.attack));
     QLabel *defense_label      = new QLabel(QString::number(card_instance.card.defense));
     QLabel *effects_label      = new QLabel(card_instance.card.effects);
-    QLabel *type_label         = new QLabel(card_instance.card.type[0]);
+    QLabel *type_label         = new QLabel(card_instance.card.type);
     QLabel *scrap_effect_label = new QLabel(card_instance.card.scrap_effect);
+    qDebug() << "labels created";
 
     effects_label->setWordWrap(true);
 
